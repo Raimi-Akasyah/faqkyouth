@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Pepper Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header (Exact Match) */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-section {
+            width: 100%;
+            background: #fff;
+        }
+
+        .navbar2 {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .Container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .lg\:flex-row { flex-direction: row; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-14 { gap: 3.5rem; }
+        .w-full { width: 100%; }
+        .w-32 { width: 8rem; }
+        .block { display: block; }
+        .hidden { display: none !important; }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .font-bold { font-weight: 700; }
+        .capitalize { text-transform: capitalize; }
+        .text-sm { font-size: 0.875rem; }
+        .font-secondary { font-family: 'Poppins', sans-serif; }
+        .text-HeadingColor-0 { color: #111827; }
+        .text-primary-500 { color: #111827 !important; }
+        .hover\:text-primary-500:hover { color: #f27a21 !important; }
+        .focus\:outline-none { outline: none; }
+        .pb-3 { padding-bottom: 0.75rem; }
+        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+        .lg\:px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .xl\:px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+
+        .navbar2 > .Container > .flex {
+            gap: 0;
+            align-items: center;
+        }
+
+        .navbar2 .w-32 {
+            width: 8rem;
+            flex-shrink: 0;
+        }
+
+        .navbar2 img {
+            max-height: 56px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar2 .flex.gap-14 {
+            justify-content: flex-start;
+            flex: 1;
+        }
+
+        .navbar2 ul {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            margin: 0 0 0 34px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .navbar2 ul a {
+            width: auto !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .navbar2 a {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .navbar2 a:hover {
+            color: #f27a21;
+        }
+
+        .navbar2 a.active {
+            color: #f27a21;
+        }
+
+        .navbar2 .text-[14px] { font-size: 15px; }
+        .navbar2 .xl\:text-[16px] { font-size: 16px; }
+
+        .navbar2 .lg\:hidden { display: none !important; }
+        .navbar2 .lg\:block { display: block !important; }
+        .navbar2 .lg\:flex { display: flex !important; }
+        .navbar2 .lg\:w-auto { width: auto !important; }
+        .navbar2 .lg\:h-\[70px\] { height: 70px !important; }
+
+        @media (max-width: 1023px) {
+            .lg\:hidden { display: block !important; }
+            .lg\:block { display: none !important; }
+            .navbar2 ul { gap: 18px; flex-wrap: wrap; justify-content: center; }
+        }
+
+        @media (max-width: 640px) {
+            .navbar2 { padding: 0 16px; }
+            .navbar2 .w-32 { width: 7rem; }
+            .navbar2 a { font-size: 14px; }
+        }
+
+        /* Hero Banner */
+        .banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('your-image-asset.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 52px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .breadcrumb {
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        /* FAQ Layout */
+        .faq-section {
+            padding: 80px 0 100px;
+            background: #f7f6ff;
+        }
+
+        .faq-grid {
+            display: block;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        .faq-content {
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .faq-intro {
+            display: none;
+        }
+
+        .faq-intro h2 {
+            font-size: 40px;
+            line-height: 1.06;
+            margin: 0 0 22px 0;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #111827;
+        }
+
+        .faq-intro p {
+            color: #555;
+            font-size: 16px;
+            margin: 0 0 16px;
+            line-height: 1.8;
+        }
+
+        .faq-intro p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .faq-container {
+            display: grid;
+            gap: 18px;
+        }
+
+        .faq-item {
+            border-radius: 18px;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #ececec;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .faq-item.hidden {
+            display: none;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.1);
+            border-color: #f0f0f0;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #111827;
+        }
+
+        .faq-question:hover {
+            background: #fafafa;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 24px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: #555;
+            line-height: 1.8;
+            font-size: 15px;
+            padding: 16px 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 600px;
+        }
+
+        .faq-item.active .faq-question {
+            color: #F16821;
+            background: rgba(241, 120, 33, 0.02);
+        }
+
+        .faq-question i {
+            transition: transform 0.35s ease, color 0.3s ease;
+            font-size: 13px;
+            color: #ccc;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active i {
+            transform: rotate(180deg);
+            color: #F16821;
+        }
+
+        @media (max-width: 992px) {
+            .faq-grid { grid-template-columns: 1fr; }
+            .faq-intro { 
+                padding: 28px 24px; 
+                position: static;
+                top: auto;
+                margin-bottom: 8px;
+            }
+            .faq-content { gap: 24px; }
+            .filter-buttons { padding: 16px 0; margin-bottom: 12px; }
+            .faq-question { padding: 18px 20px; font-size: 15px; }
+            .faq-answer { padding: 0 20px; }
+            .faq-answer p { padding: 14px 0 18px; font-size: 14.5px; }
+            .banner h1 { font-size: 38px; }
+        }
+
+        @media (max-width: 640px) {
+            .faq-section { padding: 60px 0 80px; }
+            .faq-intro h2 { font-size: 28px; margin-bottom: 16px; }
+            .faq-intro p { font-size: 14px; }
+            .faq-grid { gap: 20px; }
+            .filter-buttons { padding: 16px 0; gap: 8px; }
+            .filter-btn { padding: 8px 12px; font-size: 11px; }
+            .faq-question { padding: 16px 18px; font-size: 14px; }
+            .faq-answer { padding: 0 18px; }
+            .faq-answer p { padding: 12px 0 16px; font-size: 14px; }
+            .faq-question i { font-size: 12px; }
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 16px 0 8px;
+            border-bottom: 1px solid #ececec;
+            margin-bottom: 24px;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+            border: 2px solid #E5E7EB;
+            background: #fff;
+            color: #111827;
+            font-weight: 600;
+            font-size: 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+            border-color: #F16821;
+            color: #F16821;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: #F16821;
+            color: #fff;
+            border-color: #F16821;
+            box-shadow: 0 4px 12px rgba(241, 120, 33, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .filter-buttons { 
+                gap: 10px;
+                margin-bottom: 16px;
+            }
+            .filter-btn { 
+                padding: 10px 16px; 
+                font-size: 12px; 
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 20px 0;
+            border-top: 1px solid #eee;
+            background: #fff;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-logo img { height: 45px; margin-bottom: 20px; }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; font-size: 14px; color: #333; }
+        .footer-col ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer-col ul li a:hover,
+        .footer-col ul li a:focus {
+            color: #F16821;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .social-links i {
+            margin-left: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        @media (max-width: 992px) {
+            .faq-grid { grid-template-columns: 1fr; }
+            .banner h1 { font-size: 38px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="w-full transition-all duration-300 bg-transparent relative z-[99999]">
+        <header class="header-section navbar2 bg-white text-primary-500 w-full border-b border-PrimaryBorder" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="Container" style="padding-left: 24px; padding-right: 24px;">
+                <div class="flex items-center" style="min-height: 70px;">
+                    <div class="w-32">
+                        <a href="#">
+                            <img draggable="false" src="https://pepperlabs.my/k-youth/assets/pepper-labs-logo/transparent-logo.png" alt="Pepper Labs" class="fade-in-image fade-in" style="max-height: 56px; width: auto;" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </nav>
+
+    <section class="banner">
+        <h1>K-Youth Development Programme 2026</h1>
+        <div class="breadcrumb">Home / FAQ</div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container faq-grid">
+
+            <div class="faq-content">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="programme">About Programme</button>
+                    <button class="filter-btn" data-filter="course">Course Structure</button>
+                    <button class="filter-btn" data-filter="ojt">OJT Experience</button>
+                </div>
+                <div class="faq-container">
+
+    <!-- ================= PROGRAMME ================= -->
+
+    <div class="faq-item" data-category="programme">
+        <div class="faq-question">
+            What is the K-Youth Development Programme 2026?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>K-Youth Development Programme is a youth employability initiative by Khazanah Nasional Berhad aimed at developing Malaysia’s future talents through industry-relevant skills and experience.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="programme">
+        <div class="faq-question">
+            What are the requirements?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>
+                • Malaysian citizen aged 18–30<br>
+                • Currently unemployed<br>
+                • Diploma or Degree holder<br>
+                • Not participated in similar government programmes (MySTEP, PROTÉGÉ, etc.)<br>
+                • Able to commit full-time for 4 months<br>
+                • Strong interest in Digital & Technology roles
+            </p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="programme">
+        <div class="faq-question">
+            What is the cost of the programme?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>There is no cost. Participants will receive a monthly allowance of approximately RM2,000.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="programme">
+        <div class="faq-question">
+            What is the programme structure?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>The programme runs for 4 months: 1 month of training followed by 3 months of On-the-Job Training (OJT). Training is hybrid, while OJT is fully physical.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="programme">
+        <div class="faq-question">
+            Will I receive a certificate?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Yes, participants will receive industry-recognised certificates upon successful completion.</p>
+        </div>
+    </div>
+
+    <!-- ================= COURSE ================= -->
+
+    <div class="faq-item" data-category="course">
+        <div class="faq-question">
+            What is the course structure?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>The programme focuses on Artificial Intelligence (AI) training with placement opportunities, allowing participants to apply AI solutions in real-world business environments.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="course">
+        <div class="faq-question">
+            When can I register for this programme?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Registration is currently open. Training is expected to begin in April 2026.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="course">
+        <div class="faq-question">
+            What will I learn in this programme?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>
+                <strong>Technical Skills:</strong><br>
+                • AI Certifications (Microsoft, Google, AWS)<br><br>
+
+                <strong>Professional Skills:</strong><br>
+                • Resume Writing & Interview Skills<br>
+                • Communication & Presentation Skills<br><br>
+
+                <strong>Future Skills:</strong><br>
+                • ESG & Green Skills<br>
+                • Cybersecurity<br><br>
+
+                <strong>Leadership:</strong><br>
+                • Corporate Leadership<br>
+                • Public Policy Awareness
+            </p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="course">
+        <div class="faq-question">
+            What is the mode of learning?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>The programme uses hybrid learning including physical classes, virtual sessions, webinars, mentorship, and self-paced learning modules.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="course">
+        <div class="faq-question">
+            What happens if I get a job during the programme?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>You are encouraged to pursue job opportunities. If you secure a permanent role, the programme will assist your transition.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="course">
+        <div class="faq-question">
+            Will I be penalised if I withdraw?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Yes, penalties may apply if you terminate participation without valid reason, based on programme terms.</p>
+        </div>
+    </div>
+
+    <!-- ================= OJT ================= -->
+
+    <div class="faq-item" data-category="ojt">
+        <div class="faq-question">
+            What is On-the-Job Training (OJT)?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>OJT is a minimum 15-week paid placement where participants gain real workplace experience and apply their knowledge.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="ojt">
+        <div class="faq-question">
+            Will I get a job after the programme?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Employment depends on your performance and company hiring needs, but strong performance increases your chances.</p>
+        </div>
+    </div>
+
+    <div class="faq-item" data-category="ojt">
+        <div class="faq-question">
+            Is accommodation provided during OJT?
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+            <p>No, accommodation is not provided. However, some companies may offer arrangements during interviews.</p>
+        </div>
+    </div>
+
+</div>
+                </div>
+            </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="https://pepperlabs.my/k-youth/assets/pepper-labs-logo/transparent-logo.png" alt="Pepper Labs Logo">
+                </div>
+                <ul>
+                    <li>A-3-7, Viva Residency (Commercial), Off Jalan Ipoh, 51200, Kuala Lumpur.</li>
+                    <li>info@pepperlabs.my</li>
+                    <li>(+60)16-350 4840</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="https://pepperlabs.my/who-we-are">Who We Are</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="https://pepperlabs.my/faq">FAQ</a></li>
+                    <li><a href="https://pepperlabs.my/work-with-us">Work With Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>© 2024 Pepper Labs. All Rights Reserved.</div>
+            <div class="social-links">
+                <i class="fa-brands fa-x-twitter"></i>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        // FAQ Item Click Handler
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items (optional - remove if you want multiple open)
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && !otherItem.classList.contains('hidden')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                item.classList.toggle('active');
+            });
+        });
+
+        // Filter function
+        const applyFilter = filterValue => {
+            filterButtons.forEach(btn => {
+                const btnFilter = btn.getAttribute('data-filter');
+                btn.classList.toggle('active', btnFilter === filterValue);
+            });
+
+            faqItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                const shouldShow = itemCategory === filterValue;
+                item.classList.toggle('hidden', !shouldShow);
+                item.classList.remove('active');
+            });
+        };
+
+        // Filter Button Click Handler
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                applyFilter(button.getAttribute('data-filter'));
+            });
+        });
+
+        // Initialize default filter
+        applyFilter('programme');
+    </script>
+
+</body>
+</html>
